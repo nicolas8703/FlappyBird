@@ -5,7 +5,7 @@ package game;
  *
  * @author Nicolas Feige
  * @version 1.0
- * @date todo
+ * @date 21.20.2020
  */
 
 
@@ -13,9 +13,6 @@ public class Bird  {
     private int x = 310;
     private int y = 300;
     private int score = 0;
-
-    public Bird() {
-    }
 
     public int getX() {
         return x;

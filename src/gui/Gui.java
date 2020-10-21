@@ -12,7 +12,7 @@ import javax.swing.*;
  *
  * @author Nicolas Feige
  * @version 1.0
- * @date todo
+ * @date 21.20.2020
  */
 
 
@@ -21,16 +21,16 @@ public class Gui {
     private int height = 600;
 
 
-    public Gui(Bird bird, GameTimer gameTimer, Tubes tubes) {
+    public Gui(Bird bird, GameTimer gameTimer, Tubes tubes, Tubes tubes1, Tubes tubes2) {
         JFrame frame = new JFrame("Flappy Bird");
         frame.setSize(width, height);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
-        frame.addKeyListener(new KeyHandler(bird, gameTimer, tubes));
+        frame.addKeyListener(new KeyHandler(bird, gameTimer));
 
-        Draw z = new Draw(bird, this, tubes);
-        z.setBounds(0,0, width, height);
+        Draw z = new Draw(bird, this, tubes, tubes1, tubes2);
+        z.setBounds(0, 0, width, height);
         z.setVisible(true);
         frame.add(z);
 

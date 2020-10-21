@@ -7,7 +7,7 @@ import java.util.ArrayList;
  *
  * @author Nicolas Feige
  * @version 1.0
- * @date todo
+ * @date 21.20.2020
  */
 
 
@@ -17,27 +17,33 @@ public class Tubes {
     private ArrayList<Integer> tubeCor;
     private boolean isPassed = false;
 
-    public Tubes() {
+    Tubes() {
         tubeCor = getRandomTube();
     }
 
-    public ArrayList<Integer> getRandomTube(){
+    Tubes(int x) {
+        this.x = x;
+        tubeCor = getRandomTube();
+    }
+
+    private ArrayList<Integer> getRandomTube() {
         ArrayList<Integer> tubeCor = new ArrayList<>();
-        int randomNr = (int)(Math.random()*280);
+        int randomNr = (int) (Math.random() * 280);
 
         tubeCor.add(0, randomNr);
-        tubeCor.add(1, 200);
-        tubeCor.add(2, 680-randomNr-100);
+        tubeCor.add(1, 130);
+        tubeCor.add(2, 680 - randomNr - 100);
 
         return tubeCor;
     }
-    public void newRandomTube(){
+
+    public void newRandomTube() {
         ArrayList<Integer> tubeCor = new ArrayList<>();
-        int randomNr = (int)(Math.random()*280);
+        int randomNr = (int) (Math.random() * 280);
 
         tubeCor.add(0, randomNr);
-        tubeCor.add(1, 200);
-        tubeCor.add(2, 680-randomNr-100);
+        tubeCor.add(1, 130);
+        tubeCor.add(2, 680 - randomNr - 100);
 
         this.tubeCor = tubeCor;
     }
@@ -54,20 +60,12 @@ public class Tubes {
         return y;
     }
 
-    public void setY(int y) {
-        this.y = y;
-    }
-
     public ArrayList<Integer> getTubeCor() {
         return tubeCor;
     }
 
-    public void setTubeCor(ArrayList<Integer> tubeCor) {
-        this.tubeCor = tubeCor;
-    }
-
-    public boolean isPassed() {
-        return isPassed;
+    public boolean isisPassed() {
+        return !isPassed;
     }
 
     public void setPassed(boolean passed) {
