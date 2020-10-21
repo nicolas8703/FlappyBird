@@ -13,7 +13,7 @@ import gui.Draw;
 
 
 public class GameTimer extends Thread{
-    private boolean running = false;
+    public static boolean running = false;
     private Collide collide;
     private Bird bird;
     private Tubes tubes;
@@ -37,19 +37,36 @@ public class GameTimer extends Thread{
                 sleep(10);
                 bird.setY(bird.getY() + 2);
                 tubes.setX(tubes.getX()-2);
+                if (tubes.getX() < bird.getX() && !tubes.isPassed()){
+                    bird.setScore(bird.getScore()+1);
+                    tubes.setPassed(true);
+                }
+                if (tubes.getX() < 0){
+                    tubes.newRandomTube();
+                    tubes.setX(680);
+                    tubes.setPassed(false);
+                }
                 if (collide.collideWall()){
-                    bird.setScore(0);
-                    Draw.setGameOver(true);
-                    sleep(5000);
-                    bird.setY(300);
-                    bird.setX(340);
-                    Draw.setGameOver(false);
+                    gameOver();
+                }
+                if (collide.collideTube()){
+                    gameOver();
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
     }
+    public void gameOver() throws InterruptedException {
+        bird.setScore(0);
+        Draw.setGameOver(true);
+        sleep(5000);
+        bird.setY(300);
+        bird.setX(340);
+        Draw.setGameOver(false);
+        tubes.setX(0);
+    }
+
     public void wait5(){
         try {
             sleep(5);

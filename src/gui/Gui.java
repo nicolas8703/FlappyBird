@@ -22,12 +22,12 @@ public class Gui {
 
 
     public Gui(Bird bird, GameTimer gameTimer, Tubes tubes) {
-        JFrame frame = new JFrame("Snake");
+        JFrame frame = new JFrame("Flappy Bird");
         frame.setSize(width, height);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
-        frame.addKeyListener(new KeyHandler(bird, gameTimer));
+        frame.addKeyListener(new KeyHandler(bird, gameTimer, tubes));
 
         Draw z = new Draw(bird, this, tubes);
         z.setBounds(0,0, width, height);

@@ -10,7 +10,7 @@ package game;
 
 
 public class Bird  {
-    private int x = 340;
+    private int x = 310;
     private int y = 300;
     private int score = 0;
 

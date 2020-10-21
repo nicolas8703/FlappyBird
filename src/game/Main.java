@@ -21,7 +21,5 @@ public class Main {
         GameTimer gameTimer = new GameTimer(collide, bird, tubes);
         Gui gui = new Gui(bird, gameTimer, tubes);
         gameTimer.run();
-
-
     }
 }

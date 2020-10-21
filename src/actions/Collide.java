@@ -27,5 +27,20 @@ public class Collide {
         }
         return false;
     }
+    public boolean collideTube(){
+        if (bird.getX() == tubes.getX()-92 && bird.getY() < tubes.getTubeCor().get(0)){
+            return true;
+        }
+        if (bird.getX() == tubes.getX()-52 && bird.getY() < tubes.getTubeCor().get(0)){
+            return true;
+        }
+        if (bird.getX() == tubes.getX()-92 && bird.getY() > tubes.getY()+tubes.getTubeCor().get(0)+tubes.getTubeCor().get(1)){
+            return true;
+        }
+        if (bird.getX() == tubes.getX()-52 && bird.getY() > tubes.getY()+tubes.getTubeCor().get(0)+tubes.getTubeCor().get(1)){
+            return true;
+        }
+        return false;
+    }
 
 }
