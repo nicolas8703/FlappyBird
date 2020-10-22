@@ -14,11 +14,11 @@ import gui.Draw;
 
 public class GameTimer extends Thread {
     public static boolean running = false;
-    private Collide collide;
-    private Bird bird;
-    private Tubes tubes;
-    private Tubes tubes1;
-    private Tubes tubes2;
+    private final Collide collide;
+    private final Bird bird;
+    private final Tubes tubes;
+    private final Tubes tubes1;
+    private final Tubes tubes2;
 
     GameTimer(Collide collide, Bird bird, Tubes tubes, Tubes tubes1, Tubes tubes2) {
         this.collide = collide;
@@ -89,11 +89,14 @@ public class GameTimer extends Thread {
         bird.setY(300);
         bird.setX(340);
         Draw.setGameOver(false);
+        tubes.newRandomTube();
+        tubes1.newRandomTube();
+        tubes2.newRandomTube();
         tubes.setX(680);
         tubes1.setX(906);
         tubes2.setX(1132);
         running = false;
-        run();
+        start();
     }
 
     public void wait5() {
@@ -109,6 +112,6 @@ public class GameTimer extends Thread {
     }
 
     public void setRunning(boolean running) {
-        this.running = running;
+        GameTimer.running = running;
     }
 }

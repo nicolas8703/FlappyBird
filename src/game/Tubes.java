@@ -17,6 +17,7 @@ public class Tubes {
     private ArrayList<Integer> tubeCor;
     private boolean isPassed = false;
 
+
     Tubes() {
         tubeCor = getRandomTube();
     }

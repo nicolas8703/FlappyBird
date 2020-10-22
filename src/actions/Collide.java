@@ -32,8 +32,7 @@ public class Collide {
     public boolean collideTube() {
         if (testCollide(tubes)) return true;
         if (testCollide(tubes1)) return true;
-        if (testCollide(tubes2)) return true;
-        return false;
+        return testCollide(tubes2);
     }
 
     private boolean testCollide(Tubes tubes) {
